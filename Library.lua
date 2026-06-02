@@ -4585,9 +4585,8 @@ end;
 Players.PlayerAdded:Connect(OnPlayerChange);
 Players.PlayerRemoving:Connect(OnPlayerChange);
 
---// Bundled ThemeManager & SaveManager //--
+-- Bundled ThemeManager + SaveManager (single-file load; avoids HttpGet truncation)
 local httpService = game:GetService('HttpService')
-
 local ThemeManager = {} do
 	ThemeManager.Folder = 'LinoriaLibSettings'
 	-- if not isfolder(ThemeManager.Folder) then makefolder(ThemeManager.Folder) end
@@ -4879,9 +4878,6 @@ local ThemeManager = {} do
 
 	ThemeManager:BuildFolderTree()
 end
-
-return ThemeManager
-
 
 local SaveManager = {} do
 	SaveManager.Folder = 'LinoriaLibSettings'
